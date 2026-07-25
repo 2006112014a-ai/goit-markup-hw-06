@@ -1,11 +1,18 @@
 /* ==========================================================================
-   1. MOBILE STYLES (Базові стилі, від 320px до 767.98px)
+   1. MOBILE STYLES (До 767.98px)
    ========================================================================== */
 .team-section {
     background-color: #F4F4FD;
-    /* Світло-сірий фон секції */
     padding-top: 96px;
     padding-bottom: 96px;
+}
+
+/* Використовуємо .team-container, як чітко просить ментор */
+.team-container {
+    max-width: 296px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .team-title {
@@ -22,19 +29,16 @@
 .team-list {
     display: flex;
     flex-direction: column;
-    /* На мобілках картки йдуть в один стовпчик */
     gap: 72px;
-    /* Вертикальний відступ між картками */
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+/* Переносимо фон, тінь та радіус на весь елемент картки (.team-item) */
 .team-item {
     background-color: #FFFFFF;
-    /* СТРОГО за вашим ТЗ: фіксована ширина на всіх екранах */
     width: 264px;
-    /* Центрує картку на мобільних екранах, якщо вони вузькі */
     margin: 0 auto;
     border-radius: 0px 0px 4px 4px;
     box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
@@ -42,12 +46,20 @@
         0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.team-man-info {
+/* Скидання для картинок, щоб вони не вилазили за картку */
+.team-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Стилізуємо блок з текстом всередині картки (замість .team-card-content) */
+.team-card {
     padding: 32px 0;
     text-align: center;
 }
 
-.team-man-name {
+.team-member {
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
@@ -56,18 +68,18 @@
     margin-bottom: 8px;
 }
 
-.team-man-profession {
+.team-role {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
     margin-bottom: 8px;
-    /* Відступ до іконок соцмереж */
+    /* Відступ до іконок */
 }
 
-/* Якщо у вас є іконки соцмереж у картках команди */
-.team-soc-list {
+/* Соціальні мережі */
+.team-social-list {
     display: flex;
     justify-content: center;
     gap: 24px;
@@ -76,12 +88,12 @@
     list-style: none;
 }
 
-.team-soc-item {
+.team-social-item {
     width: 40px;
     height: 40px;
 }
 
-.team-soc-link {
+.team-social-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,12 +104,12 @@
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-soc-link:hover,
-.team-soc-link:focus {
+.team-social-link:hover,
+.team-social-link:focus {
     background-color: #404BBF;
 }
 
-.team-soc-icon {
+.team-social-icon {
     fill: #F4F4FD;
 }
 
@@ -106,35 +118,26 @@
    2. TABLET STYLES (Від 768px і вище)
    ========================================================================== */
 @media screen and (min-width: 768px) {
-
-    /* Робимо так, щоб контейнер дозволяв стати двом карткам в ряд */
     .team-container {
         max-width: 584px;
-        /* 264px * 2 + 24px (зазор) + падінги безпеки */
-        margin: 0 auto;
     }
 
     .team-list {
         flex-direction: row;
-        /* Вибудовуємо в ряд */
         flex-wrap: wrap;
-        /* Дозволяємо перенос (вийде сітка 2х2) */
         justify-content: center;
         column-gap: 24px;
-        /* Горизонтальний зазор між картками */
         row-gap: 64px;
-        /* Вертикальний зазор на планшеті */
     }
 
     .team-item {
         margin: 0;
-        /* Прибираємо мобільне центрування через margin */
     }
 }
 
 
 /* ==========================================================================
-   3. DESKTOP STYLES (Від 1158px і вище)
+   3. DESKTOP STYLES (Від 1158px і viщe)
    ========================================================================== */
 @media screen and (min-width: 1158px) {
     .team-section {
@@ -144,13 +147,10 @@
 
     .team-container {
         max-width: 1158px;
-        /* Повна ширина контейнера на десктопі */
     }
 
     .team-list {
         flex-wrap: nowrap;
-        /* Скасовуємо перенос, тепер всі 4 картки в один ряд */
         gap: 24px;
-        /* Однаковий зазор для десктопної лінійки */
     }
 }

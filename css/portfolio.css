@@ -127,7 +127,12 @@
    3. DESKTOP STYLES (От 1158px и выше)
    ========================================================================== */
 @media screen and (min-width: 1158px) {
+    .portfolio {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
     .portfolio-list {
+        column-gap: 24px;
         row-gap: 48px;
         /* Возвращаем десктопный вертикальный шаг */
     }

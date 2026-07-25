@@ -1,19 +1,22 @@
+/* ==========================================================================
+   1. БАЗОВЫЕ МОБИЛЬНЫЕ СТИЛИ (Для экранов от 320px до 767.98px)
+   ========================================================================== */
+
 .backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
     background-color: rgba(46, 47, 66, 0.4);
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
     transition:
         opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
         visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    /* Чтобы перекрывать все секции сайта */
 }
 
 .backdrop.is-open {
@@ -26,42 +29,41 @@
     position: absolute;
     top: 50%;
     left: 50%;
-
     transform: translate(-50%, -50%);
 
-    width: 408px;
+    /* Исправление ментора: Адаптивная ширина под маленькие телефоны */
+    width: calc(100% - 32px);
+    max-width: 288px;
+    /* Ограничение базовой мобильной ширины по ТЗ GoIT */
     min-height: 584px;
 
     background-color: #fcfcfc;
     border-radius: 4px;
-
     box-shadow:
         0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 1px 3px rgba(0, 0, 0, 0.12),
         0px 2px 1px rgba(0, 0, 0, 0.2);
 
-    padding: 72px 24px 24px;
-        }
+    /* Исправление ментора: Уменьшенные падинги слева и справа для мобильных */
+    padding: 72px 16px 24px 16px;
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .modal-close-btn {
     position: absolute;
     top: 24px;
     right: 24px;
-
     width: 24px;
     height: 24px;
-
     border-radius: 50%;
     border: 1px solid rgba(46, 47, 66, 0.4);
-
     background-color: #e7e9fc;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-
     cursor: pointer;
-
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -74,7 +76,6 @@
 
 .modal-close-icon {
     fill: #2e2f42;
-
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -82,9 +83,9 @@
 .modal-close-btn:focus .modal-close-icon {
     fill: #ffffff;
 }
+
 .modal-title {
     margin-bottom: 16px;
-
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
@@ -92,6 +93,7 @@
     text-align: center;
     color: #2e2f42;
 }
+
 .modal-field {
     margin-bottom: 8px;
 }
@@ -99,7 +101,6 @@
 .modal-label {
     display: block;
     margin-bottom: 4px;
-
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
@@ -113,15 +114,11 @@
 .modal-input {
     width: 100%;
     height: 40px;
-
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-
     background-color: transparent;
-
     padding-left: 38px;
     outline: transparent;
-
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -133,17 +130,15 @@
     position: absolute;
     left: 16px;
     top: 50%;
-
     transform: translateY(-50%);
-
     fill: #2e2f42;
-
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input:focus+.modal-input-icon {
     fill: #4d5ae5;
 }
+
 .modal-comment {
     margin-bottom: 16px;
 }
@@ -151,22 +146,15 @@
 .modal-textarea {
     width: 100%;
     height: 120px;
-
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-
     background-color: transparent;
-
     padding: 8px 16px;
-
     resize: none;
-
     outline: transparent;
-
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
-
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -177,6 +165,7 @@
 .modal-textarea::placeholder {
     color: rgba(46, 47, 66, 0.4);
 }
+
 .modal-checkbox {
     margin-bottom: 24px;
 }
@@ -184,74 +173,83 @@
 .modal-checkbox-label {
     display: flex;
     align-items: center;
-
+    /* Разрешаем перенос текста политики конфиденциальности на мобильных */
+    flex-wrap: wrap;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
 }
+
 .modal-checkbox-icon {
     width: 16px;
     height: 16px;
-
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 2px;
-
     margin-right: 8px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition:
-        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-checkbox-input:checked+.modal-checkbox-label .modal-checkbox-icon {
-    background-color: #404bbf;
-    border: none;
-    fill: #f4f4fd;
-}
-.modal-policy-link {
-    color: #4d5ae5;
-    margin-left: 4px;
-    text-decoration: underline;
-}
-.modal-send-btn {
-    display: block;
-
-    min-width: 169px;
-    height: 56px;
-
-    margin: 0 auto;
-
-    border: none;
-    border-radius: 4px;
-
-    background-color: #4d5ae5;
-    color: #ffffff;
-
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
-
-    cursor: pointer;
-
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-}
-
-.modal-send-btn:hover,
-.modal-send-btn:focus {
-    background-color: #404bbf;
-}
-.modal-checkbox-svg {
-    fill: #f4f4fd;
-    opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-checkbox-input:checked+.modal-checkbox-label .modal-checkbox-svg {
-    opacity: 1;
-}
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+            background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .modal-checkbox-svg {
+        fill: #f4f4fd;
+        opacity: 0;
+        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .modal-checkbox-input:checked+.modal-checkbox-label .modal-checkbox-icon {
+        background-color: #404bbf;
+        border: none;
+    }
+    
+    .modal-checkbox-input:checked+.modal-checkbox-label .modal-checkbox-svg {
+        opacity: 1;
+    }
+    
+    .modal-policy-link {
+        color: #4d5ae5;
+        margin-left: 4px;
+        text-decoration: underline;
+    }
+    
+    .modal-send-btn {
+        display: block;
+        min-width: 169px;
+        height: 56px;
+        margin: 0 auto;
+        border: none;
+        border-radius: 4px;
+        background-color: #4d5ae5;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .modal-send-btn:hover,
+    .modal-send-btn:focus {
+        background-color: #404bbf;
+    }
+    
+    
+    /* ==========================================================================
+       2. СТИЛИ ДЛЯ ПЛАНШЕТОВ И ПК (От 768px и выше)
+       ========================================================================== */
+    @media screen and (min-width: 768px) {
+        .modal {
+            /* Возвращаем фиксированную десктопную ширину из макета */
+            width: 408px;
+            max-width: none;
+    
+            /* Возвращаем десктопные падинги по 24px, как просил ментор */
+            padding: 72px 24px 24px 24px;
+        }
+    }

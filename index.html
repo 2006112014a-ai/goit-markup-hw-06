@@ -25,11 +25,12 @@
 
   <body>
     <!-- Header -->
+    <!-- Header -->
     <header class="page-header" id="header">
       <div class="container header-container">
         <a href="./index.html" class="logo"
-          ><span class="logo-web">WEB</span
-          ><span class="logo-studio">STUDIO</span>
+          ><span class="logo-web">Web</span
+          ><span class="logo-studio">Studio</span>
         </a>
 
         <nav class="header-nav">
@@ -54,18 +55,15 @@
             </li>
           </ul>
         </address>
+
+        <!-- Кнопка мобільного меню з правильною SVG-іконкою всередині -->
         <button type="button" class="menu-open-btn">
-          <img
-            class="menu-open-icon"
-            src="./images/icon-menu.svg"
-            alt="Open menu"
-            width="24"
-            height="24"
-          />
+          <svg class="menu-open-icon" width="24" height="24">
+            <use href="./images/icons.svg#icon-menu"></use>
+          </svg>
         </button>
       </div>
     </header>
-
     <main>
       <!-- Hero -->
       <section class="hero" id="hero">
@@ -135,13 +133,20 @@
       </section>
 
       <!-- Team -->
-      <section class="team section" id="team">
-        <div class="container">
+      <section class="team-section section" id="team">
+        <div class="team-container container">
           <h2 class="team-title">Our Team</h2>
 
           <ul class="team-list">
+            <!-- Учасник 1 -->
             <li class="team-item">
-              <img src="./images/team-1.jpg" alt="Mark Guerrero" width="264" />
+              <img
+                src="./images/team-1.jpg"
+                srcset="./images/team-1.jpg 1x, ./images/team-1@2x.jpg 2x"
+                alt="Mark Guerrero"
+                width="264"
+                height="260"
+              />
               <div class="team-card">
                 <h3 class="team-member">Mark Guerrero</h3>
                 <p class="team-role">Product Designer</p>
@@ -178,8 +183,15 @@
               </div>
             </li>
 
+            <!-- Учасник 2 -->
             <li class="team-item">
-              <img src="./images/team-2.jpg" alt="Camila Garcia" width="264" />
+              <img
+                src="./images/team-2.jpg"
+                srcset="./images/team-2.jpg 1x, ./images/team-2@2x.jpg 2x"
+                alt="Camila Garcia"
+                width="264"
+                height="260"
+              />
               <div class="team-card">
                 <h3 class="team-member">Camila Garcia</h3>
                 <p class="team-role">Frontend Developer</p>
@@ -216,8 +228,15 @@
               </div>
             </li>
 
+            <!-- Учасник 3 -->
             <li class="team-item">
-              <img src="./images/team-3.jpg" alt="Tom Ford" width="264" />
+              <img
+                src="./images/team-3.jpg"
+                srcset="./images/team-3.jpg 1x, ./images/team-3@2x.jpg 2x"
+                alt="Tom Ford"
+                width="264"
+                height="260"
+              />
               <div class="team-card">
                 <h3 class="team-member">Tom Ford</h3>
                 <p class="team-role">Marketing</p>
@@ -254,8 +273,15 @@
               </div>
             </li>
 
+            <!-- Учасник 4 -->
             <li class="team-item">
-              <img src="./images/team-4.jpg" alt="Daniel Wilson" width="264" />
+              <img
+                src="./images/team-4.jpg"
+                srcset="./images/team-4.jpg 1x, ./images/team-4@2x.jpg 2x"
+                alt="Daniel Wilson"
+                width="264"
+                height="260"
+              />
               <div class="team-card">
                 <h3 class="team-member">Daniel Wilson</h3>
                 <p class="team-role">UI Designer</p>
@@ -294,7 +320,6 @@
           </ul>
         </div>
       </section>
-
       <!-- Portfolio -->
       <section class="portfolio section" id="portfolio">
         <div class="container">
@@ -307,6 +332,10 @@
                 <img
                   class="portfolio-image"
                   src="./images/portfolio-1.jpg"
+                  srcset="
+                    ./images/portfolio-1.jpg    1x,
+                    ./images/portfolio-1@2x.jpg 2x
+                  "
                   width="360"
                   height="300"
                   alt="Banking App"
@@ -330,6 +359,10 @@
                 <img
                   class="portfolio-image"
                   src="./images/portfolio-2.jpg"
+                  srcset="
+                    ./images/portfolio-2.jpg    1x,
+                    ./images/portfolio-2@2x.jpg 2x
+                  "
                   width="360"
                   height="300"
                   alt="Cashless Payment"
@@ -353,6 +386,10 @@
                 <img
                   class="portfolio-image"
                   src="./images/portfolio-3.jpg"
+                  srcset="
+                    ./images/portfolio-3.jpg    1x,
+                    ./images/portfolio-3@2x.jpg 2x
+                  "
                   width="360"
                   height="300"
                   alt="Meditation App"
@@ -376,6 +413,10 @@
                 <img
                   class="portfolio-image"
                   src="./images/portfolio-4.jpg"
+                  srcset="
+                    ./images/portfolio-4.jpg    1x,
+                    ./images/portfolio-4@2x.jpg 2x
+                  "
                   width="360"
                   height="300"
                   alt="Taxi Service"
@@ -399,6 +440,10 @@
                 <img
                   class="portfolio-image"
                   src="./images/portfolio-5.jpg"
+                  srcset="
+                    ./images/portfolio-5.jpg    1x,
+                    ./images/portfolio-5@2x.jpg 2x
+                  "
                   width="360"
                   height="300"
                   alt="Screen Illustrations"
@@ -422,6 +467,10 @@
                 <img
                   class="portfolio-image"
                   src="./images/portfolio-6.jpg"
+                  srcset="
+                    ./images/portfolio-6.jpg    1x,
+                    ./images/portfolio-6@2x.jpg 2x
+                  "
                   width="360"
                   height="300"
                   alt="Online Courses"
@@ -519,10 +568,10 @@
         </div>
       </div>
     </footer>
-    <div class="mobile-menu">
-      <div class="mobile-menu-container">
-        <button type="button" class="mobile-menu-close-btn">
-          <svg width="8" height="8">
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="container mobile-menu-container">
+        <button class="mobile-menu-close-btn" type="button">
+          <svg class="mobile-menu-close-icon" width="24" height="24">
             <use href="./images/icons.svg#icon-close"></use>
           </svg>
         </button>

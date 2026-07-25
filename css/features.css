@@ -2,6 +2,12 @@
    1. MOBILE STYLES (До 767.98px)
    ========================================================================== */
 
+/* ДОБАВЛЕНО: Исправляем отступы для мобилок и планшетов по требованию ментора */
+.features {
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
 /* Иконки на мобильном и планшете по ТЗ WebStudio скрыты */
 .features-icon-container {
     display: none;
@@ -38,7 +44,7 @@
 
 .features-text {
     font-weight: 500;
-    /* На мобилке текст чуть плотнее */
+    /* На мобилке text чуть плотнее */
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
@@ -77,6 +83,12 @@
    3. DESKTOP STYLES (От 1158px и выше)
    ========================================================================== */
 @media screen and (min-width: 1158px) {
+
+    /* ДОБАВЛЕНО: Возвращаем десктопные 120px только для больших экранов */
+    .features {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
 
     /* Включаем отображение контейнера для иконок */
     .features-icon-container {
