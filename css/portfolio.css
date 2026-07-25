@@ -11,15 +11,12 @@
     text-transform: capitalize;
     color: #2E2F42;
     margin-bottom: 72px;
-    /* Добавлен отступ к карточкам */
 }
 
 .portfolio-list {
     display: flex;
     flex-direction: column;
-    /* На мобилке карточки строго в один столбик */
     gap: 48px;
-    /* Вертикальный зазор между карточками */
     margin: 0;
     padding: 0;
     list-style: none;
@@ -27,7 +24,6 @@
 
 .portfolio-item {
     width: 100%;
-    /* Карточка занимает всю ширину экрана */
     background-color: #FFFFFF;
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -35,14 +31,12 @@
 .portfolio-image {
     display: block;
     width: 100%;
-    /* Картинка растягивается на мобильных */
     height: auto;
 }
 
 .portfolio-thumb {
     position: relative;
     overflow: hidden;
-    /* Прячет оверлей, пока он внизу */
 }
 
 .portfolio-overlay {
@@ -57,7 +51,6 @@
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Оверлей выезжает при ховере и фокусе НА ВСЕХ ШИРИНАХ (ТЗ выполнено) */
 .portfolio-item:hover .portfolio-overlay,
 .portfolio-item:focus-within .portfolio-overlay {
     transform: translateY(0);
@@ -101,6 +94,12 @@
         0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
+/* Использован двойной класс, чтобы перебить общий padding: 120px от .section */
+.section.portfolio {
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
 
 /* ==========================================================================
    2. TABLET STYLES (От 768px и выше)
@@ -108,16 +107,12 @@
 @media screen and (min-width: 768px) {
     .portfolio-list {
         flex-direction: row;
-        /* Возвращаем горизонтальную сетку */
         flex-wrap: wrap;
-        /* Разрешаем перенос строк */
         column-gap: 24px;
         row-gap: 72px;
-        /* Вертикальный шаг на планшете по макету */
     }
 
     .portfolio-item {
-        /* Две колонки на планшете: от 100% отнимаем один зазор 24px и делим на 2 */
         width: calc((100% - 24px) / 2);
     }
 }
@@ -127,18 +122,19 @@
    3. DESKTOP STYLES (От 1158px и выше)
    ========================================================================== */
 @media screen and (min-width: 1158px) {
-    .portfolio {
+
+    /* Возвращаем десктопные 120px на разрешении от 1158px */
+    .section.portfolio {
         padding-top: 120px;
         padding-bottom: 120px;
     }
+
     .portfolio-list {
         column-gap: 24px;
         row-gap: 48px;
-        /* Возвращаем десктопный вертикальный шаг */
     }
 
     .portfolio-item {
-        /* Ваша десктопная формула на 3 колонки */
         width: calc((100% - 48px) / 3);
     }
 }

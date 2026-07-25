@@ -1,263 +1,248 @@
 /* ==========================================================================
-   1. MOBILE STYLES (Базові стилі, від 320px до 767.98px)
+   1. MOBILE FOOTER STYLES (Базові стилі для мобільних)
    ========================================================================== */
-
-.page-footer {
+.footer-page {
     background-color: #2E2F42;
-    /* Ментор просить менший вертикальний padding для мобільних */
     padding-top: 96px;
     padding-bottom: 96px;
 }
 
-/* Головний контейнер футера */
+/* Тепер цей flexbox увімкнеться в HTML! */
 .footer-container {
     display: flex;
     flex-direction: column;
-    /* Блоки шикуються вертикально на мобільних */
     align-items: center;
-    /* Центруємо всі блоки горизонтально */
-    justify-content: center;
-    /* Вертикальний відступ між 3-ма блоками футера замість марджинів */
-    row-gap: 72px;
+    gap: 72px;
+    /* Помилка 3: чіткий вертикальний відступ 72px на мобільних */
 }
 
-/* --- Перший блок: Логотип і текст --- */
-.footer-logo-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Центруємо сам блок логотипу */
-    text-align: center;
-}
-
-.footer-logo {
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.17;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #4D5AE5;
-    text-decoration: none;
-    margin-bottom: 16px;
-    display: inline-block;
-}
-
-.footer-logo-studio {
-    color: #F4F4FD;
-}
-
-.footer-text {
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #F4F4FD;
-    max-width: 264px;
-    /* Текст вирівняний по лівому краю відносно свого центрованого блоку */
-    text-align: left;
-}
-
-/* --- Другий блок: Соцмережі --- */
-.footer-social-block {
-    text-align: center;
-    /* Центруємо заголовок на мобільних */
-}
-
-.footer-social-title,
-.footer-subscribe-title {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #FFFFFF;
-    margin-bottom: 16px;
-}
-
-.footer-social-list {
-    display: flex;
-    justify-content: center;
-    /* Центруємо іконки на мобільних */
-    gap: 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.footer-social-item {
-    width: 40px;
-    height: 40px;
-}
-
-.footer-social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: #4D5AE5;
-    border-radius: 50%;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.footer-social-link:hover,
-.footer-social-link:focus {
-    background-color: #31D0AA;
-    /* Зелений колір при ховері за макетом */
-}
-
-.footer-social-icon {
-    fill: #F4F4FD;
-}
-
-/* --- Третій блок: Підписка --- */
+/* Центрування блоків на мобільних */
+.footer-info-block,
+.footer-social-block,
 .footer-subscribe-block {
-    width: 100%;
-    max-width: 384px;
-    /* Обмежуємо ширину форми на мобілках */
     text-align: center;
-    /* Центруємо заголовок "Subscribe" */
 }
 
+/* Форма як флекс-контейнер на мобільних */
 .footer-form {
     display: flex;
     flex-direction: column;
-    /* Поле та кнопка йдуть вертикально на мобілках */
     align-items: center;
-    row-gap: 16px;
-    /* Вертикальний проміжок на мобільних */
-    width: 100%;
+    gap: 16px;
 }
 
 .footer-input {
-    /* Поле введення займає всю ширину контейнера футера на мобілці */
     width: 100%;
+    max-width: 398px;
+    /* Або ширина за макетом для мобілки */
     height: 40px;
-    border: 1px solid #FFFFFF;
-    background-color: transparent;
-    font-size: 12px;
-    line-height: 2;
-    letter-spacing: 0.04em;
-    padding-left: 16px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    color: #FFFFFF;
-    outline: transparent;
-}
-
-.footer-input::placeholder {
-    color: #FFFFFF;
-}
-
-.footer-subscribe-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 165px;
-    height: 40px;
-    background-color: #4D5AE5;
-    border: none;
-    border-radius: 4px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.footer-subscribe-btn:hover,
-.footer-subscribe-btn:focus {
-    background-color: #404BBF;
-}
-
-.footer-subscribe-icon {
-    margin-left: 16px;
-    fill: #FFFFFF;
+    /* ваші інші стилі інпуту (бордери, кольори) */
 }
 
 
 /* ==========================================================================
-   2. TABLET STYLES (Від 768px до 1157.98px)
-   ==========================================================================*/ @media screen and (min-width: 768px) {
-       .page-footer {
-           /* Звужуємо зону вмісту футера на планшетах (збільшуємо падінги безпеки) */
-           padding-left: 108px;
-           padding-right: 108px;
-       }
-
-       .footer-container {
-           flex-direction: row;
-           /* Повертаємо блоки в ряди */
-           flex-wrap: wrap;
-           /* Дозволяємо перенос (два рядки) */
-           align-items: baseline;
-           justify-content: flex-start;
-           column-gap: 24px;
-           /* Контрольовані зазори між блоками */
-           row-gap: 72px;
-           /* Блок підписки впаде на 2-й рядок */
-       }
-
-       /* Блоки більше не центруються, а вирівнюються по лівому краю */
-       .footer-logo-block,
-       .footer-social-block,
-       .footer-subscribe-block {
-           text-align: left;
-       }
-
-       .footer-logo-block {
-           align-items: flex-start;
-       }
-
-       .footer-social-list {
-           justify-content: flex-start;
-       }
-
-       /* Форма підписки стає горизонтальним рядком */
-       .footer-form {
-           flex-direction: row;
-           gap: 24px;
-           /* Контрольований проміжок між інпутом та кнопкою */
-       }
-
-       .footer-input {
-           width: 264px;
-           /* Фіксована планшетна/десктопна ширина інпуту */
-       }
-   }
-
-
-   /* ==========================================================================
-   3. DESKTOP STYLES (Від 1158px і вище)
+   2. TABLET FOOTER STYLES (Від 768px і вище)
    ========================================================================== */
-   @media screen and (min-width: 1158px) {
-       .page-footer {
-           /* Повертаємо максимальний десктопний padding */
-           padding-top: 100px;
-           padding-bottom: 100px;
-           padding-left: 0;
-           padding-right: 0;
-       }
+@media screen and (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        /* Задаємо горизонтальні зазори між блоками */
+        column-gap: 24px;
+        row-gap: 72px;
+        /* Помилка 4: Блок підписки перенесеться на 2-й ряд з відступом 72px */
+        padding-left: 108px;
+        /* Щоб блоки стояли красиво по макету */
+    }
 
-       .footer-container {
-           flex-wrap: nowrap;
-           /* Скасовуємо перенос, всі блоки встають в один ряд */
-           /* Повне виправлення ментора: єдиний контрольований gap замість margin-right/left auto */
-           gap: 0;
-           align-items: baseline;
-       }
+    .footer-info-block,
+    .footer-social-block,
+    .footer-subscribe-block {
+        text-align: left;
+    }
 
-       /* Задаємо чіткі відступи між блоками через gap на батьківському елементі */
-       .footer-logo-block {
-           margin-right: 120px;
-       }
+    .footer-form {
+        flex-direction: row;
+        gap: 24px;
+    }
 
-       .footer-social-block {
-           margin-right: 80px;
-       }
+    .footer-input {
+        width: 264px;
+        /* Обмежуємо ширину інпуту на планшеті */
+    }
+}
 
-       .footer-subscribe-block {
-           max-width: none;
-       }
-   }
+
+/* ==========================================================================
+   3. DESKTOP FOOTER STYLES (Від 1158px і вище)
+   ========================================================================== */
+@media screen and (min-width: 1158px) {
+    .footer-page {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .footer-container {
+        flex-wrap: nowrap;
+        /* Усі 3 блоки стають в один ряд */
+        gap: 0;
+        /* Скидаємо загальні зазори, керуємо маржинами */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .footer-info-block {
+        margin-right: 120px;
+        /* Горизонтальний простір до соцмереж */
+    }
+
+    .footer-social-block {
+        /* ПОМИЛКА 5: Змінюємо з 80px на 83px за чіткою вимогою ментора */
+        margin-right: 83px;
+    }
+
+    .footer-subscribe-block {
+        margin-left: auto;
+        /* Штовхаємо блок підписки до правого краю */
+    }
+}
+footer {
+    background-color: #2e2f42;
+    /* Темний колір бренду */
+    padding-top: 100px;
+    /* Відступи зверху і знизу, щоб блок не був вузьким */
+    padding-bottom: 100px;
+}
+
+/* Оскільки тло стане темним, текст треба зробити світлим */
+footer .container {
+    color: #f4f4fd;
+}
+/* Стили для ссылок-кружочков вокруг иконок */
+.footer-social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Полупрозрачный белый фон по макету */
+    border-radius: 50%;
+    /* Делает круглыми */
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Эффект ховера: при наведении они становятся зелеными */
+.footer-social-link:hover,
+.footer-social-link:focus {
+    background-color: #31d0aa;
+    /* Фирменный зеленый цвет из ТЗ GoIT */
+}
+
+/* Цвет самой SVG-иконки внутри круга */
+.footer-social-icon {
+    fill: #f4f4fd;
+    /* Светло-серый цвет иконки */
+}
+/* Стили для кнопки Subscribe */
+.footer-subscribe-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 165px;
+    height: 40px;
+    background-color: #4d5ae5;
+    /* Фирменный синий */
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Цвет при наведении */
+.footer-subscribe-btn:hover,
+.footer-subscribe-btn:focus {
+    background-color: #404bbf;
+    /* Темно-синий */
+}
+
+/* Стили для иконки бумажного самолетика внутри кнопки */
+.footer-subscribe-icon {
+    margin-left: 16px;
+    fill: #ffffff;
+    /* Белый цвет самолетика */
+}
+/* Стили для кнопки Order Service */
+.hero-btn {
+    display: block;
+    min-width: 169px;
+    /* Она шире, чем кнопка в футере */
+    height: 56px;
+    /* И выше (56px вместо 40px) */
+    border: none;
+    background-color: #4d5ae5;
+    /* Такой же фирменный синий */
+    color: #ffffff;
+    /* Белый текст */
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: auto;
+    /* Эти две строки центрируют кнопку в секции */
+    margin-right: auto;
+    /* Плавный переход цвета при наведении */
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Эффект при наведении (точно такой же темно-синий) */
+.hero-btn:hover,
+.hero-btn:focus {
+    background-color: #404bbf;
+}
+/* 1. Вибудовуємо іконки в один горизонтальний ряд */
+.footer-social-list {
+    display: flex;
+    /* Включає режим флексів, щоб стати в рядок */
+    gap: 16px;
+    /* Робить правильний відступ між кружечками */
+    list-style: none;
+    /* Прибирає стандартні маркери списку */
+    padding: 0;
+    /* Скидає внутрішні відступи */
+    margin: 0;
+    /* Скидає зовнішні відступи */
+}
+
+/* 2. Робимо кружечки синіми та круглими */
+.footer-social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #4d5ae5;
+    /* Той самий синій колір бренду з макета */
+    border-radius: 50%;
+    /* Робить круглими */
+    /* Плавна зміна кольору при наведенні */
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3. Ефект при наведенні мишкою (стають зеленими) */
+.footer-social-link:hover,
+.footer-social-link:focus {
+    background-color: #31d0aa;
+    /* Фірмовий зелений колір */
+}

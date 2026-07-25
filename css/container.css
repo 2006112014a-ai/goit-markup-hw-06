@@ -1,12 +1,30 @@
-/* Контейнер для центрирования контента на странице */
+/* 1. Базовые стили для мобильных устройств (от 320px до 767px) */
 .container {
-    width: 100%;
-    max-width: 1158px;
-    /* Стандартная ширина макета */
-    padding-left: 15px;
-    padding-right: 15px;
+    min-width: 320px;
+    max-width: 428px;
+    /* Если у вас в ТЗ мобильный макет 480px, замените на 480px */
+    padding-left: 16px;
+    /* На мобилке ментор просил по 16px */
+    padding-right: 16px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* 2. Стили для планшетов (от 768px) */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+/* 3. Стили для десктопа (от 1158px) */
+@media screen and (min-width: 1158px) {
+    .container {
+        max-width: 1158px;
+        padding-left: 15px;
+        /* Для десктопа возвращаем по 15px, как просил ментор */
+        padding-right: 15px;
+    }
 }
 
 /* Стили для флекс-контейнера списка */

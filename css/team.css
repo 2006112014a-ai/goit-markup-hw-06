@@ -145,10 +145,6 @@
         padding-bottom: 120px;
     }
 
-    .team-container {
-        max-width: 1158px;
-    }
-
     .team-list {
         flex-wrap: nowrap;
         gap: 24px;

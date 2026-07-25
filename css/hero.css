@@ -1,19 +1,54 @@
 /* ==========================================================================
    1. MOBILE HERO STYLES (Базові стилі для мобільних)
    ========================================================================== */
+/* ==========================================================================
+   1. MOBILE HERO STYLES (Базові стилі від 0px)
+   ========================================================================== */
 .hero {
     max-width: 428px;
     margin: 0 auto;
+    padding-top: 112px;
+    /* Вертикальні падінги для мобілки */
+    padding-bottom: 112px;
     background-color: #2E2F42;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
-    /* Лінійний градієнт-оверлей + функція image-set для мобільної картинки */
+    /* Базовий градієнт + звичайна мобільна картинка */
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-        image-set(url("../images/hero-mobile.jpg") 1x,
-            url("../images/hero-mobile@2x.jpg") 2x);
+        url("../images/hero-mobile.jpg");
 }
+
+/* Ретина для мобілки (через min-resolution за вимогою ментора) */
+@media screen and (min-resolution: 192dpi),
+screen and (-webkit-min-device-pixel-ratio: 2) {
+    .hero {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+            url("../images/hero-mobile@2x.jpg");
+    }
+}
+
+/* Центрування всього контенту всередині Хіро */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Типографіка та обмеження ширини заголовка на мобілці */
+.hero-title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    margin-bottom: 72px;
+    /* Відступ від заголовка до кнопки */
+    max-width: 320px;
+    /* Обмеження довжини рядка для мобілки */
+}
+
 
 /* ==========================================================================
    2. TABLET HERO STYLES (Від 768px і вище)
@@ -21,13 +56,33 @@
 @media screen and (min-width: 768px) {
     .hero {
         max-width: 768px;
-
-        /* Градієнт + image-set для планшетної картинки */
+        padding-top: 112px;
+        /* Падінги для планшета */
+        padding-bottom: 112px;
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-            image-set(url("../images/hero-tablet.jpg") 1x,
-                url("../images/hero-tablet@2x.jpg") 2x);
+            url("../images/hero-tablet.jpg");
+    }
+
+    /* Ретина для планшета */
+    @media screen and (min-resolution: 192dpi),
+    screen and (-webkit-min-device-pixel-ratio: 2) {
+        .hero {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+                url("../images/hero-tablet@2x.jpg");
+        }
+    }
+
+    /* Зміна розміру шрифту та ширини заголовка для планшета */
+    .hero-title {
+        font-size: 56px;
+        line-height: 1.07;
+        margin-bottom: 36px;
+        /* Менший відступ до кнопки на планшеті за макетом */
+        max-width: 496px;
+        /* Нове обмеження ширини тексту */
     }
 }
+
 
 /* ==========================================================================
    3. DESKTOP HERO STYLES (Від 1158px і вище)
@@ -35,10 +90,27 @@
 @media screen and (min-width: 1158px) {
     .hero {
         max-width: 1440px;
-
-        /* Градієнт + image-set для десктопної картинки */
+        padding-top: 188px;
+        /* Збільшені падінги для десктопа */
+        padding-bottom: 188px;
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-            image-set(url("../images/hero-desktop.jpg") 1x,
-                url("../images/hero-desktop@2x.jpg") 2x);
+            url("../images/hero-desktop.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+    }
+
+    /* Ретина для десктопа */
+    @media screen and (min-resolution: 192dpi),
+    screen and (-webkit-min-device-pixel-ratio: 2) {
+        .hero {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+                url("../images/hero-desktop@2x.jpg");
+        }
+    }
+
+    .hero-title {
+        margin-bottom: 48px;
+        /* Десктопний відступ до кнопки */
     }
 }
