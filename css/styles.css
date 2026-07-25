@@ -1,0 +1,229 @@
+
+/* Убираем стандартные отступы у всех элементов */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Убираем маркеры (точки) у всех списков на сайте */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Общие правила для изображений, чтобы они не ломали сетку */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Главный контейнер — ограничивает ширину сайта и центрирует его на экране */
+.container {
+    width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    /* Магия центрирования */
+}
+
+/* Скрытие технического заголовка Our Features для поисковых роботов */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* ==========================================================================
+   2. СЕКЦИЯ: OUR FEATURES (ОСОБЕННОСТИ) — 4 колонки в ряд
+   ========================================================================== */
+
+.features-list {
+    display: flex;
+    gap: 24px;
+    /* Отступ между колонками */
+}
+
+.features-item {
+    width: calc((100% - 72px) / 4);
+    /* Делим 100% на 4 части с учетом 3 отступов по 24px */
+}
+
+
+/* ==========================================================================
+   3. СЕКЦИЯ: OUR TEAM (КОМАНДА) — 4 карточки в ряд
+   ========================================================================== */
+
+.team-list {
+    display: flex;
+    gap: 24px;
+    /* Отступ между карточками сотрудников */
+}
+
+.team-item {
+    width: calc((100% - 72px) / 4);
+    /* Делим 100% на 4 части */
+}
+
+
+/* ==========================================================================
+   4. СЕКЦИЯ: OUR PORTFOLIO (ПОРТФОЛИО) — 3 карточки в ряд с переносом
+   ========================================================================== */
+
+.portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* Разрешаем карточкам переноситься на второй ряд */
+    column-gap: 24px;
+    row-gap: 48px;
+    /* 48px между рядами, 24px между колонками */
+}
+
+.portfolio-item {
+    width: calc((100% - 48px) / 3);
+    /* Делим 100% на 3 части с учетом 2 отступов по 24px */
+}
+
+.portfolio-content {
+    padding: 32px 16px;
+    border: 1px solid #e7e9fc;
+    border-top: none;
+}
+
+.section {
+    padding: 120px 0;
+}
+/* Задаем светло-серый фон для всей секции Team */
+.team.section {
+    background-color: #f4f4fd;
+    /* Тот самый фирменный грязно-белый цвет из макета */
+}
+
+/* Стили для самой карточки сотрудника, чтобы она стала белой рамочкой */
+.team-item {
+    background-color: #ffffff;
+    /* Белый цвет карточки, который выделится на сером фоне */
+    border-radius: 0px 0px 4px 4px;
+    /* Скругление нижних углов карточки */
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 2px 1px rgba(46, 47, 66, 0.08);
+    /* Мягкая тень, чтобы карточки «приподнялись» */
+}
+
+/* Добавляем внутренние отступы для текста внутри карточки */
+.team-card {
+    padding: 32px 0;
+    text-align: center;
+    /* Выравниваем имена и профессии по центру карточки */
+}
+/* 1. Темный фон для всей секции Hero и центрирование содержимого */
+.hero {
+    background-color: #2e2f42;
+    /* Фирменный темно-синий цвет из Figma */
+    padding-top: 188px;
+    /* Большие отступы сверху и снизу */
+    padding-bottom: 188px;
+    text-align: center;
+    /* Выравнивает и заголовок, и кнопку по центру */
+}
+
+/* 2. Стили для главного заголовка H1 */
+.hero-title {
+    font-size: 56px;
+    line-height: 1.07;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    /* Белый цвет текста */
+    max-width: 496px;
+    /* Ограничиваем ширину, чтобы текст переносился как на макете */
+    margin-top: 0;
+    margin-left: auto;
+    /* Магическое центрирование блока с текстом */
+    margin-right: auto;
+    margin-bottom: 48px;
+    /* Расстояние от заголовка до кнопки */
+}
+
+/* 3. Стили для синей кнопки Order Service */
+.hero-btn {
+    background-color: #4d5ae5;
+    /* Ярко-синий цвет кнопки */
+    color: #ffffff;
+    /* Белый текст на кнопке */
+    font-family: "Roboto", sans-serif;
+    font-weight: 510;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    /* Меняет курсор на палец при наведении */
+    border: none;
+    /* Убираем стандартную черную рамку браузера */
+    border-radius: 4px;
+    /* Аккуратное скругление углов */
+    padding: 16px 32px;
+    /* Внутренние отступы кнопки */
+    min-width: 169px;
+    /* Минимальная ширина */
+    display: block;
+    /* Делаем блочной для центрирования */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Робимо головний контейнер флексовим та розштовхуємо елементи по краях */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Ставимо логотип та навігацію в один ряд */
+.page-header .header-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Вилаштовуємо пункти меню (Features, Team, Portfolio) в лінію */
+.nav-list {
+    display: flex;
+    gap: 40px;
+    /* Відступ між посиланнями меню */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 76px;
+    /* Відступ меню від логотипу, як у Figma */
+}
+
+/* Вилаштовуємо контакти в один ряд */
+.contacts-list {
+    display: flex;
+    gap: 40px;
+    /* Відступ між поштою та телефоном */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Прибираємо підкреслення у всіх посилань у шапці */
+.logo,
+.nav-link,
+.contacts-link {
+    text-decoration: none;
+}

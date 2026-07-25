@@ -1,0 +1,40 @@
+/* Контейнер для центрирования контента на странице */
+.container {
+    width: 100%;
+    max-width: 1158px;
+    /* Стандартная ширина макета */
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стили для флекс-контейнера списка */
+.features-list {
+    display: flex;
+    gap: 24px;
+    /* Расстояние между четырьмя колонками */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Ширина для каждого отдельного элемента */
+.features-item {
+    flex-basis: calc((100% - 3 * 24px) / 4);
+    /* Автоматический расчет ширины с учетом gap */
+}
+
+/* Скрытие заголовка для скринридеров (у вас уже есть класс sr-only) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
