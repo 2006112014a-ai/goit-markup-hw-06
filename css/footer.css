@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. Базовые стили для футера (Мобильная версия до 767px)
+   1. БАЗОВІ СТИЛІ ТА МОБІЛЬНА ВЕРСІЯ (До 767.98px)
    ========================================================================== */
 
 .page-footer {
@@ -8,33 +8,54 @@
     padding-bottom: 96px;
 }
 
-/* Ограничение ширины для текстового блока, о котором писал ментор */
-.footer-text {
-    max-width: 264px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #f4f4fd;
-    margin-left: auto;
-    /* Центрирование текста на мобилках */
-    margin-right: auto;
-    /* Центрирование текста на мобилках */
+/* Центруємо блоки на мобільці, але текст залишаємо зліва за вимогою ментора */
+@media screen and (max-width: 767px) {
+
+    .footer-info-block,
+    .footer-social-block,
+    .footer-subscribe-block {
+        text-align: center;
+        margin-bottom: 72px;
+        /* Однаковий відступ 72px між ВСІМА блоками */
+    }
+
+    .footer-info-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-social-list {
+        justify-content: center;
+    }
 }
 
-/* Отступы от элементов на мобильной версии */
+/* Останній блок на мобільці не потребує відступу знизу */
+@media screen and (max-width: 767px) {
+    .footer-subscribe-block {
+        margin-bottom: 0;
+    }
+}
+
+/* Логотип */
 .footer-logo {
     display: inline-block;
     margin-bottom: 16px;
 }
 
-.footer-social-title {
-    font-weight: 500;
+/* Абзац тексту - ЗАВЖДИ вирівняний по лівому краю */
+.footer-text {
+    max-width: 264px;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    color: #ffffff;
-    margin-bottom: 16px;
+    color: #f4f4fd;
+    text-align: left;
+    /* Чітке вирівнювання по лівому краю за фідбеком */
 }
 
+/* Заголовки блоків */
+.footer-social-title,
 .footer-subscribe-title {
     font-weight: 500;
     font-size: 16px;
@@ -44,28 +65,7 @@
     margin-bottom: 16px;
 }
 
-/* Центрирование всего контента футера на мобильных устройствах */
-@media screen and (max-width: 767px) {
-    .page-footer {
-        text-align: center;
-    }
-
-    .footer-social-list {
-        justify-content: center;
-    }
-
-    /* Дополнительные отступы между смысловыми блоками на мобилке */
-    .footer-logo-block,
-    .footer-social-block {
-        margin-bottom: 72px;
-    }
-}
-
-/* ==========================================================================
-   2. Стили для элементов (Иконки, Кнопки, Поля ввода)
-   ========================================================================== */
-
-/* Социальные сети */
+/* Соціальні мережі */
 .footer-social-list {
     display: flex;
     gap: 16px;
@@ -94,26 +94,30 @@
     fill: #f4f4fd;
 }
 
-/* Форма подписки и инпут */
-.footer-subscribe-form {
+/* Форма підписки (Об'єднано класи за фідбеком ментора) */
+.footer-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
     align-items: center;
 }
 
-footer input {
+/* Поле вводу (Мобільна версія - на всю ширину) */
+.footer-form input {
     background-color: transparent;
     border: 1px solid #ffffff;
     color: #ffffff;
     border-radius: 4px;
     padding: 8px 16px;
     width: 100%;
-    max-width: 264px;
+    /* Розтягується на мобільних */
     height: 40px;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
 }
 
-/* Кнопка Subscribe */
+/* Кнопка підписки */
 .footer-subscribe-btn {
     display: flex;
     justify-content: center;
@@ -131,6 +135,8 @@ footer input {
     border: none;
     border-radius: 4px;
     padding: 8px 24px;
+    margin: 0 auto;
+    /* Центрування кнопки на мобільці */
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -145,53 +151,70 @@ footer input {
 }
 
 /* ==========================================================================
-   3. Адаптивная сетка (Планшет и Десктоп)
+   2. ПЛАНШЕТНА ВЕРСІЯ (Від 768px до 1157.98px)
    ========================================================================== */
-
-/* Планшетная версия (от 768px) */
 @media screen and (min-width: 768px) {
     .page-footer .container {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
         gap: 72px 24px;
-        /* Задает правильные зазоры для сетки на планшете */
         padding-left: 108px;
-        /* Выравнивание по ТЗ для планшета */
     }
 
-    .page-footer {
+    .footer-info-block,
+    .footer-social-block,
+    .footer-subscribe-block {
         text-align: left;
+        margin-bottom: 0;
     }
 
-    .footer-text {
-        margin-left: 0;
-        margin-right: 0;
+    .footer-info-block {
+        display: block;
     }
 
-    .footer-subscribe-form {
+    .footer-form {
         flex-direction: row;
         gap: 24px;
     }
-}
 
-/* Десктопная версия (от 1158px) */
-@media screen and (min-width: 1158px) {
-    .page-footer {
-        padding-top: 100px;padding-bottom: 100px;
+    .footer-form input {
+        width: 264px;
+        /* Фіксована ширина на планшеті та десктопі */
+    }
+
+    .footer-subscribe-btn {margin: 0;
+    }
+    }
+    
+    /* ==========================================================================
+       3. ДЕСКТОПНА ВЕРСІЯ (Від 1158px і вище)
+       ========================================================================== */
+    @media screen and (min-width: 1158px) {
+        .page-footer {
+            padding-top: 100px;
+            padding-bottom: 100px;
         }
-        
+    
         .page-footer .container {
+            display: flex;
+            align-items: baseline;
             gap: 0;
             padding-left: 15px;
+            padding-right: 15px;
         }
-        
-        /* Раскидываем блоки по горизонтали на десктопе */
-        .footer-logo-block {
+    
+        /* Виправлено горизонтальні кроки за зауваженням ментора */
+        .footer-info-block {
             margin-right: 120px;
         }
-        
+    
         .footer-social-block {
             margin-right: 80px;
         }
+    
+        /* Зсуваємо блок підписки до правого краю контейнера */
+        .footer-subscribe-block {
+            margin-left: auto;
         }
+    }
