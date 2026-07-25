@@ -1,15 +1,30 @@
-/* Стилі для логотипу */
+/* ==========================================================================
+   1. MOBILE STYLES (До 767px включительно)
+   ========================================================================== */
+
+.page-header {
+    border-bottom: 1px solid #e7e9fc;
+}
+
+.page-header .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Высота хедера на мобильных формируется за счет падингов на логотипе */
 .logo {
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 18px;
-    line-height: 1.33;
+    line-height: 1.17;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     text-decoration: none;
-    margin-right: 76px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    display: inline-block;
 }
-
 
 .logo-web {
     color: #4D5AE5;
@@ -19,85 +34,151 @@
     color: #2E2F42;
 }
 
-/* Навігаційні посилання */
-.nav-link {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #2E2F42;
-    text-decoration: none;
-    display: block;
-    padding: 24px 0;
-    position: relative;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+/* Стили, которые нужны ТОЛЬКО на мобильных (закрываем в max-width) */
+@media screen and (max-width: 767.98px) {
+    .header-nav {
+        display: none;
+    }
+
+    .contacts {
+        display: none;
+    }
+
+    .menu-open-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu-open-icon {
+        display: block;
+    }
 }
 
-.nav-link:hover,
-.nav-link:focus {
-    color: #404BBF;
+
+/* ==========================================================================
+   2. TABLET STYLES (От 768px и выше)
+   ========================================================================== */
+@media screen and (min-width: 768px) {
+    .page-header .header-container {
+        justify-content: flex-start;
+    }
+
+    /* На планшетах и десктопах кнопка бургера вообще не нужна */
+    .menu-open-btn {
+        display: none;
+    }
+
+    .header-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        margin-right: 120px;
+        padding-top: 24px;
+        /* Меняем падинги под планшетный стандарт */
+        padding-bottom: 24px;
+    }
+
+    .nav-list {
+        display: flex;
+        gap: 40px;
+    }
+
+    .nav-link {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #2E2F42;
+        text-decoration: none;
+        display: block;
+        padding: 24px 0;
+        position: relative;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link.current {
+        color: #404BBF;
+    }
+
+    .nav-link.current::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 4px;
+        background-color: #404BBF;
+        border-radius: 2px;
+    }
+
+    .contacts {
+        display: block;
+        font-style: normal;
+        margin-left: auto;
+    }
 }
 
-/* Скидання курсиву для адреси та стилі контактів */
-.contacts {
-    font-style: normal;
-    margin-left: auto;
+/* Стили контактов ТОЛЬКО для промежутка планшета (от 768px до 1157px) */
+@media screen and (min-width: 768px) and (max-width: 1157.98px) {
+    .contacts-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .contacts-link {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: 0.02em;
+        color: #434455;
+        text-decoration: none;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .contacts-link:hover,
+    .contacts-link:focus {
+        color: #404BBF;
+    }
 }
 
-.contacts-link {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #434455;
-    text-decoration: none;
-    display: block;
-    padding: 24px 0;
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* ==========================================================================
+   3. DESKTOP STYLES (От 1158px и выше)
+   ========================================================================== */
+@media screen and (min-width: 1158px) {
+    .logo {
+        margin-right: 76px;
+    }
 
-.contacts-link:hover,
-.contacts-link:focus {
-    color: #404BBF;
-}
+    .contacts-list {
+        display: flex;
+        gap: 40px;
+    }
 
-.nav-link.current{
-    color: #404BBF;
-}
+    .contacts-link {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        color: #434455;
+        text-decoration: none;
+        padding: 24px 0;
+        display: block;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.nav-link.current::after {
-    content: "";
-
-    position:absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 4px;
-    background-color: #404BBF;
-    border-radius: 2px;
-}
-.page-header {
-    border-bottom: 1px solid #e7e9fc;
-}
-
-.page-header .container {
-    display: flex;
-    align-items: center;
-    
-}
-
-.header-nav {
-    display: flex;
-    align-items: center;
-}
-
-.nav-list {
-    display: flex;
-    gap: 40px;
-}
-
-.contacts-list {
-    display: flex;
-    gap: 40px;
+    .contacts-link:hover,
+    .contacts-link:focus {
+        color: #404BBF;
+    }
 }

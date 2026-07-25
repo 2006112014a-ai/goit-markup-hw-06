@@ -1,104 +1,156 @@
-.team {
-    background-color: #f4f4fd;
-    padding-top: 120px;
-    padding-bottom: 120px;
+/* ==========================================================================
+   1. MOBILE STYLES (Базові стилі, від 320px до 767.98px)
+   ========================================================================== */
+.team-section {
+    background-color: #F4F4FD;
+    /* Світло-сірий фон секції */
+    padding-top: 96px;
+    padding-bottom: 96px;
 }
 
 .team-title {
-    margin-bottom: 72px;
+    font-weight: 700;
     font-size: 36px;
     line-height: 1.11;
     letter-spacing: 0.02em;
-    text-align: center;
+    color: #2E2F42;
     text-transform: capitalize;
-    color: #2e2f42;
-    margin-top: 0;
+    text-align: center;
+    margin-bottom: 72px;
 }
 
 .team-list {
     display: flex;
-    gap: 24px;
-    list-style: none;
-    padding: 0;
+    flex-direction: column;
+    /* На мобілках картки йдуть в один стовпчик */
+    gap: 72px;
+    /* Вертикальний відступ між картками */
     margin: 0;
-    justify-content: center;
+    padding: 0;
+    list-style: none;
 }
 
 .team-item {
-    background-color: #ffffff;
-    flex-basis: calc((100% - 3 * 24px) / 4);
-    text-align: center;
-    border-radius: 0 0 4px 4px;
-    box-shadow:
-        0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    background-color: #FFFFFF;
+    /* СТРОГО за вашим ТЗ: фіксована ширина на всіх екранах */
+    width: 264px;
+    /* Центрує картку на мобільних екранах, якщо вони вузькі */
+    margin: 0 auto;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
         0px 1px 1px 0px rgba(46, 47, 66, 0.16),
         0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.team-item img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.team-card {
-    padding: 32px 16px;
+.team-man-info {
+    padding: 32px 0;
     text-align: center;
 }
 
-.team-member {
-    margin-bottom: 8px;
+.team-man-name {
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: 0.02em;
-    color: #2e2f42;
+    color: #2E2F42;
+    margin-bottom: 8px;
 }
 
-.team-role {
+.team-man-profession {
+    font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
+    margin-bottom: 8px;
+    /* Відступ до іконок соцмереж */
 }
 
-/* Выстраиваем круглые подложки в линию по центру карточки */
-.team-social-list {
+/* Якщо у вас є іконки соцмереж у картках команди */
+.team-soc-list {
     display: flex;
     justify-content: center;
     gap: 24px;
-    list-style: none;
+    margin: 0;
     padding: 0;
-    margin-top: 8px;
-    /* Отступ вверх до текста должности */
+    list-style: none;
 }
 
-.team-social-item {
+.team-soc-item {
     width: 40px;
     height: 40px;
 }
 
-.team-social-link {
-    width: 100%;
-    height: 100%;
-    background-color: #4d5ae5;
-    /* Синий цвет кружка из макета */
-    border-radius: 50%;
+.team-soc-link {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* ТЗ: Плавная анимация ховера БЕЗ использования слова 'all' */
+    width: 100%;
+    height: 100%;
+    background-color: #4D5AE5;
+    border-radius: 50%;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Эффект ховера для иконок в секции Team (меняется на более темный синий) */
-.team-social-link:hover,
-.team-social-link:focus {
-    background-color: #404bbf;
+.team-soc-link:hover,
+.team-soc-link:focus {
+    background-color: #404BBF;
 }
 
-/* ТЗ: Задавать fill непосредственно на svg элемент */
-.team-social-icon {
-    fill: #f4f4fd;
+.team-soc-icon {
+    fill: #F4F4FD;
+}
+
+
+/* ==========================================================================
+   2. TABLET STYLES (Від 768px і вище)
+   ========================================================================== */
+@media screen and (min-width: 768px) {
+
+    /* Робимо так, щоб контейнер дозволяв стати двом карткам в ряд */
+    .team-container {
+        max-width: 584px;
+        /* 264px * 2 + 24px (зазор) + падінги безпеки */
+        margin: 0 auto;
+    }
+
+    .team-list {
+        flex-direction: row;
+        /* Вибудовуємо в ряд */
+        flex-wrap: wrap;
+        /* Дозволяємо перенос (вийде сітка 2х2) */
+        justify-content: center;
+        column-gap: 24px;
+        /* Горизонтальний зазор між картками */
+        row-gap: 64px;
+        /* Вертикальний зазор на планшеті */
+    }
+
+    .team-item {
+        margin: 0;
+        /* Прибираємо мобільне центрування через margin */
+    }
+}
+
+
+/* ==========================================================================
+   3. DESKTOP STYLES (Від 1158px і вище)
+   ========================================================================== */
+@media screen and (min-width: 1158px) {
+    .team-section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .team-container {
+        max-width: 1158px;
+        /* Повна ширина контейнера на десктопі */
+    }
+
+    .team-list {
+        flex-wrap: nowrap;
+        /* Скасовуємо перенос, тепер всі 4 картки в один ряд */
+        gap: 24px;
+        /* Однаковий зазор для десктопної лінійки */
+    }
 }

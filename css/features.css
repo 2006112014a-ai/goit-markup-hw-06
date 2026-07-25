@@ -1,48 +1,122 @@
+/* ==========================================================================
+   1. MOBILE STYLES (До 767.98px)
+   ========================================================================== */
+
+/* Иконки на мобильном и планшете по ТЗ WebStudio скрыты */
+.features-icon-container {
+    display: none;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    /* Карточки идут строго друг под другом */
+    gap: 72px;
+    /* Вертикальный отступ между карточками на мобилке */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.features-item {
+    width: 100%;
+    /* Карточка занимает всю ширину экрана */
+}
+
 .features-subtitle {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.2;
+    font-weight: 700;
+    /* На мобилке заголовок жирнее */
+    font-size: 36px;
+    /* И крупнее */
+    line-height: 1.11;
     letter-spacing: 0.02em;
     color: #2E2F42;
+    text-align: center;
+    /* Центрирование текста по макету */
     margin-bottom: 8px;
 }
 
 .features-text {
-    font-weight: 400;
+    font-weight: 500;
+    /* На мобилке текст чуть плотнее */
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
 }
 
-.features-item {
-  flex-basis: calc((100% - 72px) / 4);
+
+/* ==========================================================================
+   2. TABLET STYLES (От 768px и выше)
+   ========================================================================== */
+@media screen and (min-width: 768px) {
+    .features-list {
+        flex-direction: row;
+        /* Выстраиваем в сетку */
+        flex-wrap: wrap;
+        /* Разрешаем перенос (получится сетка 2х2) */
+        column-gap: 24px;
+        /* Горизонтальный зазор */
+        row-gap: 72px;
+        /* Вертикальный зазор */
+    }
+
+    .features-item {
+        /* Две колонки: от 100% отнимаем один зазор 24px и делим на 2 */
+        flex-basis: calc((100% - 24px) / 2);
+    }
+
+    .features-subtitle {
+        text-align: left;
+        /* Текст возвращается к левому краю */
+    }
 }
 
-.features-list {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
 
-/* Стили для серой карточки подложки под иконку */
-.features-icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 264px;
-    height: 112px;
-    background-color: #f4f4fd;
-    /* Тот самый светло-серый цвет */
-    border-radius: 4px;
-    margin-bottom: 8px;
-    border: 1px solid #8e8f99;
-    /* Отступ вниз до текста заголовка */
-}
+/* ==========================================================================
+   3. DESKTOP STYLES (От 1158px и выше)
+   ========================================================================== */
+@media screen and (min-width: 1158px) {
 
-/* Цвет самой иконки */
-.features-svg {
-    fill: #2e2f42;
+    /* Включаем отображение контейнера для иконок */
+    .features-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        /* Меняем фиксированные 264px на 100%, чтобы не было багов сжатия */
+        height: 112px;
+        background-color: #f4f4fd;
+        border-radius: 4px;
+        border: 1px solid #8e8f99;
+        margin-bottom: 8px;
+    }
+
+    .features-svg {
+        fill: #2e2f42;
+    }
+
+    .features-list {
+        flex-wrap: nowrap;
+        /* Все 4 карточки встают строго в один ряд */
+        gap: 24px;
+        /* Одинаковый зазор между всеми элементами */
+    }
+
+    .features-item {
+        /* Ваш код: 4 колонки с учетом трех зазоров по 24px (3 * 24 = 72) */
+        flex-basis: calc((100% - 72px) / 4);
+    }
+
+    .features-subtitle {
+        font-weight: 500;
+        /* На десктопе возвращаем параметры из вашего исходного кода */
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .features-text {
+        font-weight: 400;
+        /* Возвращаем обычную плотность текста */
+    }
 }

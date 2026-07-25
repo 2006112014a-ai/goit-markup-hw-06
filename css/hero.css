@@ -1,31 +1,34 @@
 .hero {
     background-color: #2E2F42;
-    padding: 188px 0;
-    max-width: 1440px;
+    padding: 72px 0;
+    /* Уменьшенные падинги для мобильных по ТЗ */
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
-     text-align: center;
 
-     background-image: linear-gradient(
-        rgba(46, 47, 66, 0.7),
-        rgba(46, 47, 66, 0.7)
-     ),
-     url('../images/hero.jpg');
+    /* Дублируем с префиксом для старых Safari/iOS, чтобы картинка не исчезала */
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        -webkit-image-set(url('../images/hero-mobile.jpg') 1x, url('../images/hero-mobile@2x.jpg') 2x);
 
-     background-repeat: no-repeat;
-     background-position: center;
-     background-size: cover;
+    /* Стандартное свойство */
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        image-set(url('../images/hero-mobile.jpg') 1x, url('../images/hero-mobile@2x.jpg') 2x);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero-title {
     font-weight: 700;
-    font-size: 56px;
-    line-height: 1.07;
+    font-size: 36px;
+    /* Исправили на 36px строго по ТЗ WebStudio */
+    line-height: 1.11;
     letter-spacing: 0.02em;
     color: #FFFFFF;
-    max-width: 496px;
-    margin: 0 auto 48px;
-    text-align: center;
+    max-width: 320px;
+    /* Сужаем текстовый блок под экраны телефонов */
+    margin: 0 auto 72px;
 }
 
 .hero-btn {
@@ -50,4 +53,54 @@
 .hero-btn:hover,
 .hero-btn:focus {
     background-color: #404BBF;
+}
+
+
+/* ==========================================================================
+   2. TABLET HERO STYLES (От 768px)
+   ========================================================================== */
+@media screen and (min-width: 768px) {
+    .hero {
+        padding: 112px 0;
+        /* Средние падинги для планшета */
+
+        /* Кроссбраузерный image-set для планшета */
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+            -webkit-image-set(url('../images/hero-tablet.jpg') 1x, url('../images/hero-tablet@2x.jpg') 2x);
+
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+            image-set(url('../images/hero-tablet.jpg') 1x, url('../images/hero-tablet@2x.jpg') 2x);
+    }
+
+    .hero-title {
+        font-size: 56px;
+        /* Возвращаем большой размер шрифта */
+        line-height: 1.07;
+        max-width: 496px;
+        /* Расширяем текстовый блок */
+        margin-bottom: 36px;
+    }
+}
+
+
+/* ==========================================================================
+   3. DESKTOP HERO STYLES (От 1158px)
+   ========================================================================== */
+@media screen and (min-width: 1158px) {
+    .hero {
+        padding: 188px 0;
+        /* Максимальные десктопные падинги */
+        max-width: 1440px;
+
+        /* Кроссбраузерный image-set для десктопа (проверьте имена файлов в папке!) */
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+            -webkit-image-set(url('../images/hero.jpg') 1x, url('../images/hero@2x.jpg') 2x);
+
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+            image-set(url('../images/hero.jpg') 1x, url('../images/hero@2x.jpg') 2x);
+    }
+
+    .hero-title {
+        margin-bottom: 48px;
+    }
 }
