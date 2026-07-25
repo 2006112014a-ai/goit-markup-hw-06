@@ -1,58 +1,34 @@
-/* 1. Базовые стили для мобильных устройств (от 320px до 767px) */
+/* Базові стилі для мобільних екранів (від 320px) */
 .container {
     min-width: 320px;
     max-width: 428px;
-    /* Если у вас в ТЗ мобильный макет 480px, замените на 480px */
+    /* Якщо мобільний макет у ТЗ 480px, змініть на 480px */
     padding-left: 16px;
-    /* На мобилке ментор просил по 16px */
+    /* Точно 16px за зауваженням ментора */
     padding-right: 16px;
+    /* Точно 16px за зауваженням ментора */
     margin-left: auto;
     margin-right: auto;
 }
 
-/* 2. Стили для планшетов (от 768px) */
+/* Для планшетів (від 768px) */
 @media screen and (min-width: 768px) {
     .container {
         max-width: 768px;
+        padding-left: 16px;
+        /* Залишаємо 16px для планшета */
+        padding-right: 16px;
     }
 }
 
-/* 3. Стили для десктопа (от 1158px) */
+/* Для десктопів (від 1158px) */
 @media screen and (min-width: 1158px) {
     .container {
         max-width: 1158px;
+        /* Повна десктопна ширина */
         padding-left: 15px;
-        /* Для десктопа возвращаем по 15px, как просил ментор */
+        /* Зменшуємо до 15px, як вимагає ментор */
         padding-right: 15px;
+        /* Зменшуємо до 15px, як вимагає ментор */
     }
-}
-
-/* Стили для флекс-контейнера списка */
-.features-list {
-    display: flex;
-    gap: 24px;
-    /* Расстояние между четырьмя колонками */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Ширина для каждого отдельного элемента */
-.features-item {
-    flex-basis: calc((100% - 3 * 24px) / 4);
-    /* Автоматический расчет ширины с учетом gap */
-}
-
-/* Скрытие заголовка для скринридеров (у вас уже есть класс sr-only) */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
 }
