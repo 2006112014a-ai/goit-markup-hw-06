@@ -80,7 +80,37 @@ screen and (-webkit-min-device-pixel-ratio: 2) {
         /* На планшете заголовок становится шире */
     }
 }
+.hero-btn {
+    background-color: #4d5ae5;
+    /* Ярко-синий цвет кнопки */
+    color: #ffffff;
+    /* Белый текст на кнопке */
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    /* Меняет курсор на палец при наведении */
+    border: none;
+    /* Убираем стандартную черную рамку браузера */
+    border-radius: 4px;
+    /* Аккуратное скругление углов */
+    padding: 16px 32px;
+    /* Внутренние отступы кнопки */
+    min-width: 169px;
+    /* Минимальная ширина */
+    display: block;
+    /* Делаем блочной для центрирования */
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.hero-btn:hover,
+.hero-btn:focus {
+    background-color: #404bbf;
+}
 
 /* ==========================================================================
    3. DESKTOP HERO STYLES (От 1158px и выше)
@@ -103,6 +133,7 @@ screen and (-webkit-min-device-pixel-ratio: 2) {
                 url("../images/hero-desktop@2x.jpg");
         }
     }
+
     .hero-title {
         margin-bottom: 48px;
     }

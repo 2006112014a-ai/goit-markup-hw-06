@@ -172,9 +172,8 @@
 
 .modal-checkbox-label {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     /* Разрешаем перенос текста политики конфиденциальности на мобильных */
-    flex-wrap: wrap;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
@@ -186,6 +185,8 @@
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
     margin-right: 8px;
         display: flex;
         align-items: center;

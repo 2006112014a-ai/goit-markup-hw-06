@@ -99,7 +99,8 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
 }
 
 /* Поле вводу (Мобільна версія - на всю ширину) */
@@ -217,4 +218,7 @@
         .footer-subscribe-block {
             margin-left: auto;
         }
+                .logo-studio-footer {
+                    color: #f4f4fd;
+                }
     }
